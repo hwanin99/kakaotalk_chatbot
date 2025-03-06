@@ -1,4 +1,3 @@
-
 # 응답시간 초과시 먼저 답변
 def timeover():
     response = {'version': '2.0', 'template': {
