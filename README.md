@@ -1,5 +1,5 @@
 ## OpenAI API로 ChatGPT와 DALLE-2를 가져와 카카오톡 챗봇 만들기
----
+![image](https://github.com/user-attachments/assets/0f5e915b-cdd0-4f70-9432-7e49def8966b)
 ### 작동원리
 1. 카카오톡에 prompt 입력
 2. AWS API Gateway를 통해 AWS Lambda 함수로 전달
