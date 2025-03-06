@@ -3,12 +3,8 @@ openai == 0.28.1
 translate == 3.6.1
 '''
 
-import json
-import openai
-import threading
-import time
-import queue as q
 import os
+import openai
 from translate import Translator
 
 # OpenAI API KEY
