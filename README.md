@@ -3,7 +3,9 @@
 ## OpenAI API로 ChatGPT와 DALLE-3를 가져와 카카오톡 챗봇 만들기
 <a href="https://hwan-data.tistory.com/entry/ChatGPT-DALLE2-API%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%98%EC%97%AC-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%B1%97%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0"><img src="https://img.shields.io/badge/Blog-d14836?style=flat-square&logo=Tistory&logoColor=white&link=https://hwan-data.tistory.com/entry/ChatGPT-DALLE2-API%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%98%EC%97%AC-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%B1%97%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0"/></a> 
 
-<img src="https://github.com/user-attachments/assets/80f3fcbd-17f8-4cd5-bbf3-bd11a23efbca" width="75%" height="75%"/>
+<img src="https://github.com/user-attachments/assets/7f5a086a-9ab3-48ca-a5a8-c045a2fa9b4c" width="75%" height="75%"/>
+<img width="1844" height="1118" alt="image" src="https://github.com/user-attachments/assets/86a569af-d3ff-4dfc-8a04-fb6b022f2627" />
+
 </div>
 
 <br>
