@@ -13,7 +13,7 @@ openai.api_key = 'Your_OPENAI_API_KEY'
 
 # ChatGPT에게 질문/답변 받기
 def getTextFromGPT(prompt):
-    messages_prompt = [{"role": "system", "content": 'You are a thoughtful assistant. Respond to all input in 25 words and answer in korea'}]
+    messages_prompt = [{"role": "system", "content": 'You are a thoughtful assistant. Respond to all input logically in Korean.'}]
     messages_prompt += [{"role": "user", "content": prompt}]
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages_prompt)
     message = response["choices"][0]["message"]["content"]
@@ -23,7 +23,7 @@ def getTextFromGPT(prompt):
 def getImageURLFromDALLE(prompt):
     translator = Translator(from_lang='ko',to_lang='en')
     prompt = translator.translate(prompt) # prompt를 영어로 번역
-    response = openai.Image.create(prompt=prompt,n=1,size="512x512")
+    response = openai.Image.create(prompt=prompt,model='dall-e-3', n=1,size="1024x1024")
     image_url = response['data'][0]['url']
     return image_url
 
