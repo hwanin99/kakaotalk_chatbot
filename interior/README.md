@@ -17,6 +17,7 @@ interior/
 ├── utils/
 │   ├── image_generator.py    # image_generator 함수
 │   ├── asynchronous.py       # 비동기 처리를 위한 timeover 함수
+│   ├── responseOpenAI.py     # Main 응답 함수
 │   └── kakao_response.py     # 카카오톡 챗봇 형식으로 변환하기 위한 함수
 ├── main.py                   # Lambda handler 함수
 └── README.md
