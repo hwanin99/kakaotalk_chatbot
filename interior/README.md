@@ -22,8 +22,10 @@ interior/
 └── README.md
 ```
 ---
+### 작동 원리 및 사용 예시
 ![그림123](https://github.com/user-attachments/assets/cdd0375d-e336-4bc6-ba92-dac2a5c39f03)
 
+---
 ### 주요 처리 흐름
 1. 입력 이미지 분석 (gpt-4.1-mini)
    > * 입력받은 평면도 이미지의 공간 구조와 배치를 설명하는 간단한 텍스트 캡션을 생성한다.
@@ -40,7 +42,8 @@ interior/
 1. image_generator 함수
    > * 이미지 처리의 전체 과정을 하나의 함수로 구성하여 end-to-end 파이프라인으로 실행한다.
    > * "이미지 설명 생성 $\rightarrow$ 이미지 생성 $\rightarrow$ S3 업로드 $\rightarrow$ URL 반환"
+   > * Ex) image_generator(image_url, style)
 2. botlog.txt 상태 관리
    > * 챗봇의 대화 흐름 관리를 위해 botlog.txt를 사용하여 현재 상태를 저장 및 갱신한다.
    > * 저장된 상태를 기반으로 다음 처리 단계를 분기하고, 함수 입력으로 활용한다.
-   > * Ex) image_generator(img_url, style)
+   > * Ex) {START,,,} $\rightarrow$ ... $\rightarrow$ {DONE,image_url,style,image_url_s3}
