@@ -25,9 +25,9 @@
 ```bash
 interior/
 ├── utils/
-│   ├── asynchronous.py              # 비동기 처리를 위한 timeover 함수
-│   └── get_response.ipynb   #  
+│   ├── asynchronous.py      # 비동기 처리를 위한 timeover 함수
+│   └── get_response.ipynb   # ChatGPT와 DALLE3에게 응답받기 위한 함수 & 받은 응답을 카카오톡 챗봇 형식에 맞게 변환하는 함수 
 ├── kakao_chatbot.ipynb
-├── main.py
+├── main.py    # Lambda handler 함수
 └── README.md
 ```
