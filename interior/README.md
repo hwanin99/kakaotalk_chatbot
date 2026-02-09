@@ -13,12 +13,16 @@ $\rightarrow$ 따라서, gpt-4.1 모델을 이용하여, 위 문제점들을 해
 
 ---
 ``` bash
-utils
-│ botlog.txt # (현재 STATE 확인)
-│
-├────────────────────────────────────────── 
-└───────
+interior/
+├── utils/
+│   ├── image_generator.py    # image_generator 함수
+│   ├── asynchronous.py       # 비동기 처리를 위한 timeover 함수
+│   └── kakao_response.py     # 카카오톡 챗봇 형식으로 변환하기 위한 함수
+├── main.py                   # Lambda handler 함수
+└── README.md
 ```
+---
+![그림123](https://github.com/user-attachments/assets/cdd0375d-e336-4bc6-ba92-dac2a5c39f03)
 
 ### 주요 처리 흐름
 1. 입력 이미지 분석 (gpt-4.1-mini)
