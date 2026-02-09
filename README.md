@@ -20,3 +20,11 @@
 * DALLE·3는 한국어를 잘 이해하지 못하므로, 입력받은 prompt를 영어로 변역해서 받아야 한다.
 * DALLE·3는 응답을 내보내는데 대부분 5초 이상이 소요된다. 그러나, 카카오톡 챗봇은 5초 이상 응답이 없으면 에러를 반환한다.
   * 이를 해결하기 위해, 비동기 처리를 해야 한다.
+---
+interior/
+├── utils/
+│   ├── asynchronous.py              # 비동기 처리를 위한 timeover 함수
+│   └── get_response.ipynb   #  
+├── kakao_chatbot.ipynb
+├── main.py
+└── README.md
