@@ -24,27 +24,37 @@ interior/
 ```
 ---
 ### 작동 원리 및 사용 예시
-![그림123](https://github.com/user-attachments/assets/cdd0375d-e336-4bc6-ba92-dac2a5c39f03)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/66255e58-9aed-432d-afa7-322ce69fc8a5" height="350" />
+  <img src="https://github.com/user-attachments/assets/b9af3d09-8b11-4122-9cb3-12e3bf9f622a" height="350" />
+</p>
 
 ---
 ### 주요 처리 흐름
-1. 입력 이미지 분석 (gpt-4.1-mini)
-   > * 입력받은 평면도 이미지의 공간 구조와 배치를 설명하는 간단한 텍스트 캡션을 생성한다.
-2. 이미지 생성 (gpt-4.1)
+1. 입력 이미지 분석 (GPT-4.1-mini)
+   > * 입력된 평면도 이미지를 분석하여 공간 구조, 방 배치, 주요 특징을 설명하는 텍스트 캡션을 생성한다.
+2. 인테리어 이미지 생성 (GPT-4.1)
    > * 입력
-   >   * "원본 이미지 + 텍스트 캡션 + 인테리어 스타일"
+   >   * "원본 평면도 이미지"
+   >   * "이미지 캡션"
+   >   * "사용자 입력 인테리어 스타일"
    > * 출력
-   >   * 원본 구조를 유지한 상태에서 요청한 인테리어 스타일로 생성된 이미지
-3. 이미지 전달 방식
-   > * 생성된 이미지를 AWS S3에 업로드하고, 해당 URL을 카카오톡 챗봇의 이미지 응답으로 전달한다.
+   >   * 원본 공간 구조를 유지하면서 요청한 인테리어 스타일이 적용된 이미지
+3. 생성 이미지 전달
+   > * 생성된 이미지를 AWS S3에 업로드한 후, 업로드된 이미지의 URL을 카카오톡 챗봇을 통해 사용자에게 전달한다.
 </br>
 
 ### 챗봇 상태 관리 및 함수 구성
-1. image_generator 함수
-   > * 이미지 처리의 전체 과정을 하나의 함수로 구성하여 end-to-end 파이프라인으로 실행한다.
-   > * "이미지 설명 생성 $\rightarrow$ 이미지 생성 $\rightarrow$ S3 업로드 $\rightarrow$ URL 반환"
-   > * Ex) image_generator(image_url, style)
-2. botlog.txt 상태 관리
-   > * 챗봇의 대화 흐름 관리를 위해 botlog.txt를 사용하여 현재 상태를 저장 및 갱신한다.
-   > * 저장된 상태를 기반으로 다음 처리 단계를 분기하고, 함수 입력으로 활용한다.
-   > * Ex) {START,,,} $\rightarrow$ ... $\rightarrow$ {DONE,image_url,style,image_url_s3}
+1. image_generate() 함수
+   > * 이미지 생성에 필요한 전체 과정을 하나의 함수로 구성하여 End-to-End 파이프라인으로 수행한다.
+   > * 처리 순서
+   >   * "이미지 캡션 생성 $\rightarrow$ 이미지 생성 $\rightarrow$ AWS S3 업로드 $\rightarrow$ 이미지 URL 반환"
+   > * 예시  
+   >   * image_generator(image_url, style, user_id)
+
+2. S3 기반 상태(State) 관리
+   > * 사용자별 상태 정보를 S3에 저장하여 대화 진행 상태를 관리한다.
+   > * 저장된 상태(State)를 기반으로 현재 대화 단계를 판단하고, 다음 처리 로직을 수행한다.
+   > * 이미지 생성 진행 상태(GENERATING), 완료(DONE), 실패(ERROR)를 관리하여 비동기 이미지 생성 과정을 처리한다.
+   > * 상태 예시
+   >   * {START,,,} $\rightarrow$ ... $\rightarrow$ {DONE,image_url,style,image_url_s3}
