@@ -15,11 +15,13 @@ $\rightarrow$ 따라서, gpt-4.1 모델을 이용하여, 위 문제점들을 해
 ``` bash
 interior/
 ├── utils/
-│   ├── image_generator.py    # image_generator 함수
-│   ├── asynchronous.py       # 비동기 처리를 위한 timeover 함수
-│   ├── responseOpenAI.py     # 전체 응답 함수
-│   └── kakao_response.py     # 카카오톡 챗봇 형식으로 변환하기 위한 함수
-├── lambda_handler.py                   # 메인 Lambda handler 함수
+│   ├── chat_flow.py       # 카카오톡 대화 흐름 분기 처리 (responseOpenAI)
+│   ├── config.py          # 설정값 및 OpenAI·S3·Lambda 클라이언트 초기
+│   ├── kakao_format.py    # 카카오톡 챗봇 응답 형식 변환 함수
+│   └── openai_utils.py    # 캡션 생성(chatgpt) 및 이미지 생성(image_generate)
+│   └── s3_utils.py        # 생성 이미지 S3 업로드 및 URL 반환
+│   └── state.py           # S3 기반 사용자 상태 저장·조회·초기화
+├── lambda_handler.py      # 메인 Lambda handler 함수(Worker/카카오 경로 복귀)
 └── README.md
 ```
 ---
