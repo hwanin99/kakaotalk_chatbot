@@ -34,7 +34,7 @@ interior/
 1. 입력 이미지 분석 (GPT-4.1-mini)
    > * 입력된 평면도 이미지를 분석하여 공간 구조, 방 배치, 주요 특징을 설명하는 이미지 캡션을 생성한다.
    > * 이미지에 대한 캡션을 포함하지 않은 프롬프트는 성능이 확연히 떨어짐을 확인할 수 있었다.
-   > * <img width="1862" height="989" alt="image" src="https://github.com/user-attachments/assets/20a6e5fc-c636-4229-a543-3e6c5e54adbf" />
+   > * <img src="https://github.com/user-attachments/assets/20a6e5fc-c636-4229-a543-3e6c5e54adbf" height="350" />
 
 2. 인테리어 이미지 생성 (GPT-4.1)
    > * 입력
